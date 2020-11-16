@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDG110 Oblig</title>
+</head>
+
+<body>
+    <h1>IDG1100 Oblig</h1>
+    <h2>Answers 1</h2>
+    <h3>1. What components are part of the Von Neuman Architecture?</h3>
+    <p>CPU, memory and input/output</p>
+    <h3>2. What is user space?</h3>
+    <p>All the code that runs outside of the operating system's kernel.</p>
+    <h3>3. What is the shell?</h3>
+    <p>The shell is a tool for manipulating data and executing several applications.</p>
+    <h3>4. Where is the shell located?</h3>
+    <p>The shell is located in the user space.</p>
+    <h3>5. What is the main task of the shell?</h3>
+    <p>The main task of the shell is to read commands and run other programs.</p>
+    <h2>Answers 2</h2>
+    <h3>6. What is the octal representation of a file that can be read and written only by its owner?</h3>
+    <p>rw</p>
+    <h3>7. In UNIX systems, what is the common name of the special user that can access and modify every file?</h3>
+    <p>The superuser</p>
+    <h3>8. Which file permission classes are available in UNIX systems?</h3>
+    <p>read, write and execute</p>
+    <h3>9. As of 2020, which percentage of servers have UNIX-like OS?</h3>
+    <p>Around 70%</p>
+    <h3>10. The command ssh will:</h3>
+    <p>let you connect to a remote server using an ssh.</p>
+    <h3>11. UNIX command: access your current working directory</h3>
+    <p>pwd</p>
+    <h3>12. UNIX command: rename files</h3>
+    <p>mv hi.txt hello.txt</p>
+    <h3>13. UNIX command: schedule the execution of programs in the future</h3>
+    <p>at</p>
+    <h3>14. UNIX command: forcefully shutdown the command with process ID 123</h3>
+    <p>kill</p>
+    <h3>15. UNIX command: access your root user</h3>
+    <p>sudo -s</p>
+    <h3>16. Crontab scheduled: at minute 30 on Sunday.</h3>
+    <p>30 * * * 03</p>
+    <h3>17. Crontab scheduled: at minute 30 on day-of-month 15.</h3>
+    <p>30 * 15 * *</p>
+    <h3>18. Crontab scheduled: at 05:30 on every day-of-week from Sunday through Monday in June.</h3>
+    <p>30 5 * 6 0-1</p>
+    <h3>19. Script: print your name and date</h3>
+    <code>
+        #!/bin/bash
+        read "What is your name: " name
+        echo $name "this is the date: $(date)"
+    </code>
+
+    <h3>20. Script: add two numeric values, print the result</h3>
+    <code>
+        #!/bin/bash
+        read -p "Enter first number: " num1
+        read -p "Enter second number: " num2
+        echo "The total is: $((num1+num2))"
+    </code>
+
+    <h3>21 Script: inputs username, prints "USERNAME stored"</h3>
+    <code>
+        #!/bin/bash
+        read -p "Enter your username: " username
+        echo "$username stored"
+    </code>
+
+    <h3>22. Script: Store the output of the command "hostname" in a variable. Display "This script is running on_."
+        where "_" is the output of the "hostname" command.
+    </h3>
+    <code>
+        #!/bin/bash
+        HOSTNAME=$(hostname)
+        echo "This script is running on $HOSTNAME"
+    </code>
+
+    <h3>23. Script: Store the output of the working directory (from where the script is run) in a variable then print
+        the variable
+    </h3>
+    <code>
+        #!/bin/bash
+        PWD=$(pwd)
+        echo "This is your current working directory: $PWD"
+    </code>
+    <h3>24. Create a step by step tutorial on how to create a cronjob that prints "Task is scheduled at" + DATE. Cronjob
+        is scheduled every 30 minutes on today's date.
+    </h3>
+    <code>
+        crontab -e
+        /30 * 13 11 5 echo "Task is scheduled at $(date) >> log.txt
+    </code>
+    <h3>25. Menu script:</h3>
+    <code>
+        #!/bin/bash
+        menu_option_one() {
+        echo "What is the capital of Norway?"
+        echo "Oslo"
+        }
+
+        menu_option_two() {
+        echo "What is VIPS?"
+        echo "A tool for planning and documenting nursery"
+        }
+
+        menu_option_three() {
+        echo "What faculty is BWU in?"
+        echo "Faculty of architecture and design"
+        }
+
+        press_enter() {
+        echo ""
+        echo -n " Press Enter to continue "
+        read
+        clear
+        }
+
+        incorrect_selection() {
+        echo "Wrong selection! Try again."
+        }
+
+        until ["selection" = "0"]; do
+        clear
+        echo ""
+        echo " 1 - What is the capital of Norway?"
+        echo " 2 - What is VIPS?"
+        echo " 3 - What faculty is BWU in?"
+        echo " q - Exit"
+        echo -n "Enter selection: "
+        read selection
+        echo ""
+        case $selection in
+        1) clear ; menu_option_one ; press_enter ;;
+        2) clear ; menu_option_two ; press_enter ;;
+        3) clear ; menu_option_three ; press_enter ;;
+        q) clear ; exit ;;
+        *) clear ; incorrect_selection ; press_enter ;;
+        esac
+        done
+    </code>
+</body>
+
+</html>
